@@ -202,7 +202,7 @@ class LLMResumeJobDescription:
         prompt = ChatPromptTemplate.from_template(education_prompt_template)
         chain = prompt | self.llm_cheap | StrOutputParser()
         output = chain.invoke({
-            # "education_details": self.resume.education_details,
+            "education_details": self.resume.education_details,
             "job_description": self.job_description
         })
         return output
@@ -273,13 +273,39 @@ class LLMResumeJobDescription:
         })
         
         return output
-
     
+    def generate_bio_section(self) -> str:
+        bio_prompt_template = self._preprocess_template_string(
+            self.strings.prompt_bio
+        )
+        prompt = ChatPromptTemplate.from_template(bio_prompt_template)
+        chain = prompt | self.llm_cheap | StrOutputParser()
+        output = chain.invoke({
+            "bio": self.resume.bio,
+            "job_description": self.job_description
+        })
+        return output
+
+    def generate_technologies_section(self) -> str:
+        prompt = ChatPromptTemplate.from_template(self.strings.prompt_technologies)
+        chain = prompt | self.llm_cheap | StrOutputParser()
+        output = chain.invoke({
+            "technologies": self.resume.technologies,
+            "job_description": self.job_description
+        })
+        return output
 
     def generate_html_resume(self) -> str:
         # Define a list of functions to execute in parallel
         def header_fn():
             return self.generate_header()
+        
+        def bio_fn():
+            return self.generate_bio_section()
+
+        def technologies_fn():
+            return self.generate_technologies_section()
+
 
         def education_fn():
             return self.generate_education_section()
@@ -299,6 +325,8 @@ class LLMResumeJobDescription:
         # Create a dictionary to map the function names to their respective callables
         functions = {
             "header": header_fn,
+            "bio": bio_fn,
+            "technologies": technologies_fn,
             "education": education_fn,
             "work_experience": work_experience_fn,
             "side_projects": side_projects_fn,
@@ -322,6 +350,8 @@ class LLMResumeJobDescription:
             f"<body>\n"
             f"  {results['header']}\n"
             f"  <main>\n"
+            f"    {results['bio']}\n"
+            f"    {results['technologies']}\n"
             f"    {results['education']}\n"
             f"    {results['work_experience']}\n"
             f"    {results['side_projects']}\n"

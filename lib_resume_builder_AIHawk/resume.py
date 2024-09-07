@@ -69,6 +69,14 @@ class LegalAuthorization(BaseModel):
     legally_allowed_to_work_in_us: Optional[str]  # Added field
     requires_eu_sponsorship: Optional[str]
 
+class Technologies(BaseModel):
+    front_end: Optional[List[str]]
+    back_end: Optional[List[str]]
+    data_storage: Optional[List[str]]
+    cloud_devops: Optional[List[str]]
+    project_management: Optional[List[str]]
+    design: Optional[List[str]]
+
 class Resume(BaseModel):
     personal_information: Optional[PersonalInformation]
     education_details: Optional[List[EducationDetails]]
@@ -82,6 +90,8 @@ class Resume(BaseModel):
     salary_expectations: Optional[SalaryExpectations]
     self_identification: Optional[SelfIdentification]
     legal_authorization: Optional[LegalAuthorization]
+    bio: Optional[str]
+    technologies: Optional[Technologies]
     
     @staticmethod
     def normalize_exam_format(exam):

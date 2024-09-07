@@ -5,6 +5,7 @@
   --pageWidth: 49.62rem;
   --textColor: #383838;
   --lineColorA: #b8b8b8;
+  --lineColorB: #e8e8e8;
   --accentColor: blue;
   --HFont: "Josefin Sans", sans-serif;
   --PFont: "Open Sans", sans-serif;
@@ -23,7 +24,7 @@
 }
 
 body {
-  /* border: 1px solid var(--accentColor); page guidelines*/
+  /* border: 1px solid var(--accentColor); */
   max-width: var(--pageWidth);
   padding: 3.375rem 1.5rem;
   display: flex;
@@ -109,14 +110,16 @@ section h2 {
   border-bottom: 1px solid var(--lineColorA);
 }
 
-.entry {
+.entry,
+#technologies .compact-list li {
   padding-top: 1rem;
   display: grid;
   grid-template-columns: 1fr 4fr;
   column-gap: 10px;
 }
 
-.entry:first-of-type {
+.entry:first-of-type,
+#technologies .compact-list li:first-of-type {
   padding-top: 0.5rem;
 }
 
@@ -188,4 +191,20 @@ section h2 {
 }
 #skills-languages {
   order: 6;
+}
+
+#technologies .compact-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#technologies .compact-list li {
+  margin-left: 0;
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+  border-bottom: 1px solid var(--lineColorB);
+}
+
+.category-heading {
+  font-weight: bold;
 }

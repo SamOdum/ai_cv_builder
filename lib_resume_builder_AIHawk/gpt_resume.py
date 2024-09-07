@@ -134,7 +134,29 @@ class LLMResumer:
             "personal_information": self.resume.personal_information
         })
         return output
-
+    
+    def generate_bio_section(self) -> str:
+        bio_prompt_template = self._preprocess_template_string(
+            self.strings.prompt_bio
+        )
+        prompt = ChatPromptTemplate.from_template(bio_prompt_template)
+        chain = prompt | self.llm_cheap | StrOutputParser()
+        output = chain.invoke({
+            "bio": self.resume.bio
+        })
+        return output
+    
+    def generate_technologies_section(self) -> str:
+        technologies_prompt_template = self._preprocess_template_string(
+            self.strings.prompt_technologies
+        )
+        prompt = ChatPromptTemplate.from_template(technologies_prompt_template)
+        chain = prompt | self.llm_cheap | StrOutputParser()
+        output = chain.invoke({
+            "technologies": self.resume.technologies
+        })
+        return output
+    
     def generate_education_section(self) -> str:
         education_prompt_template = self._preprocess_template_string(
             self.strings.prompt_education
@@ -204,6 +226,8 @@ class LLMResumer:
     def generate_html_resume(self) -> str:
         # Generate all sections of the resume
         header = self.generate_header()
+        bio = self.generate_bio_section()
+        technologies = self.generate_technologies_section()
         education = self.generate_education_section()
         work_experience = self.generate_work_experience_section()
         side_projects = self.generate_side_projects_section()
@@ -215,6 +239,8 @@ class LLMResumer:
             f"<body>\n"
             f"  {header}\n"
             f"  <main>\n"
+            f"    {bio}\n"
+            f"    {technologies}\n"
             f"    {education}\n"
             f"    {work_experience}\n"
             f"    {side_projects}\n"

@@ -33,6 +33,43 @@ Act as an HR expert and resume writer specializing in ATS-friendly resumes. Your
 The results should be provided in html format, include only the provide information and Provide only the html code for the resume, without any explanations or additional text and also without ```html ```
 """
 
+prompt_bio = """
+Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to create a professional and polished bio for the resume. The bio should:
+
+1. **Professional Summary**: Provide a concise summary of your professional journey, highlighting key achievements and skills.
+2. **Career Focus**: Clearly state your career goals and the specific role you are seeking.
+
+- **My information:**  
+  {bio}
+
+- **Template to Use**
+```
+    <p id="bio">[Your Bio]</p>
+```
+The results should be provided in html format, include only the provide information and Provide only the html code for the resume, without any explanations or additional text and also without ```html ```
+"""
+
+prompt_technologies = """
+Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to list the technologies you are proficient in. For each technology, ensure you include:
+
+1. **Technology Category**: Clearly state the category or type of technology without the word "Technologies".
+2. **Specific Technologies**: List the specific technologies or tools within each category.
+
+- **My information:**  
+  {technologies}
+
+- **Template to Use**
+```
+<section id="technologies">
+    <h2>Technologies</h2>
+    <ul class="compact-list">
+        <li><span class="category-heading">[Technology Category]</span><span class="category-list">[Specific Technologies]</span></li>
+    </ul>
+</section>  
+```
+The results should be provided in html format, include only the provide information and Provide only the html code for the resume, without any explanations or additional text and also without ```html ```
+"""
+
 prompt_education = """
 Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to articulate the educational background for a resume. For each educational entry, ensure you include:
 
@@ -228,7 +265,7 @@ Act as an HR expert and resume writer with a specialization in creating ATS-frie
           <li>[Specific Skill or Technology]</li>
           <li>[Specific Skill or Technology]</li>
           <li>[Specific Skill or Technology]</li>
-          <li><strong>Languages:</strong></li>
+          <li><strong>Languages:[Languages]</strong></li>
       </ul>
     </div>
 </section>

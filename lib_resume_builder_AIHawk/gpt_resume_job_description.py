@@ -202,7 +202,7 @@ class LLMResumeJobDescription:
         prompt = ChatPromptTemplate.from_template(education_prompt_template)
         chain = prompt | self.llm_cheap | StrOutputParser()
         output = chain.invoke({
-            "education_details": self.resume.education_details,
+            # "education_details": self.resume.education_details,
             "job_description": self.job_description
         })
         return output
@@ -258,11 +258,11 @@ class LLMResumeJobDescription:
                 if exp.skills_acquired:
                     skills.update(exp.skills_acquired)
 
-        if self.resume.education_details:
-            for edu in self.resume.education_details:
-                if edu.exam:
-                    for exam in edu.exam:
-                        skills.update(exam.keys())
+        # if self.resume.education_details:
+            # for edu in self.resume.education_details:
+            #     if edu.exam:
+            #         for exam in edu.exam:
+                        # skills.update(exam.keys())
         prompt = ChatPromptTemplate.from_template(additional_skills_prompt_template)
         chain = prompt | self.llm_cheap | StrOutputParser()
         output = chain.invoke({

@@ -1,3 +1,4 @@
+/*Clean Blue$https://github.com/samodum*/
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Kaisei+HarunoUmi&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap");
 
 :root {
@@ -32,6 +33,13 @@ body {
   margin: 0 auto;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  order: 2;
+}
+
 a {
   text-decoration: none;
 }
@@ -56,6 +64,12 @@ h1 {
   font-weight: 400;
   margin-bottom: -0.125rem;
   color: var(--accentColor);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
 }
 
 .contact-info p {

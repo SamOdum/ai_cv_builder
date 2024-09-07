@@ -8,7 +8,7 @@ setup(
     long_description_content_type='text/markdown',
     author='feder-cr',
     author_email='federico.elia.majo@gmail.com',
-    url='https://github.com/feder-cr/lib_resume_builder_AIHawk',
+    url='https://github.com/SamOdum/lib_resume_builder_AIHawk',
     packages=find_packages(),
     install_requires=[ 
         'langchain',

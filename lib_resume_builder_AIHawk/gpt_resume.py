@@ -186,10 +186,12 @@ class LLMResumer:
             self.strings.prompt_additional_skills
         )
         skills = set()
-        for exp in self.resume.experience_details:
-            skills.update(exp.skills_acquired)
-        for edu in self.resume.education_details:
-            skills.update(exam.name for exam in edu.exam)
+        # for edu in self.resume.education_details:
+        #     if hasattr(edu, 'exam'):
+        #         if isinstance(edu.exam, dict):
+        #             skills.update(edu.exam.keys())
+        #         elif isinstance(edu.exam, list):
+        #             skills.update(exam.name for exam in edu.exam if hasattr(exam, 'name'))
         prompt = ChatPromptTemplate.from_template(additional_skills_prompt_template)
         chain = prompt | self.llm_cheap | StrOutputParser()
         output = chain.invoke({

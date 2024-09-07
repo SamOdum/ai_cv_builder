@@ -22,7 +22,7 @@ class EducationDetails(BaseModel):
     gpa: Optional[str]
     graduation_year: Optional[int]
     field_of_study: Optional[str]
-    exam: Optional[Union[List[Dict[str, str]], Dict[str, str]]]
+    # exam: Optional[Union[List[Dict[str, str]], Dict[str, str]]]
 
 class ExperienceDetails(BaseModel):
     position: Optional[str]

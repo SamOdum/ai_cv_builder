@@ -3,10 +3,11 @@ __pycache__
 log
 /src/__pycache__
 test*
-my*
-plain_text_resume.yaml
-lib_resume_builder_AIHawk.egg-info/*
+my_resume.yaml
+ai_cv_builder.egg-info/*
 build/*
 .DS_Store
-/virtual
+/venv
 secrets.yaml
+data_folder/output*
+.vscode

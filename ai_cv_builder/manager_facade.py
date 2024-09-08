@@ -3,17 +3,17 @@ import os
 from pathlib import Path
 import tempfile
 import inquirer
-from lib_resume_builder_AIHawk.config import global_config
-from lib_resume_builder_AIHawk.utils import HTML_to_PDF
+from ai_cv_builder.config import global_config
+from ai_cv_builder.utils import HTML_to_PDF
 import webbrowser
 
 class FacadeManager:
     def __init__(self, api_key, style_manager, resume_generator, resume_object, log_path):
         # Ottieni il percorso assoluto della directory della libreria
         lib_directory = Path(__file__).resolve().parent
-        global_config.STRINGS_MODULE_RESUME_PATH = lib_directory / "resume_prompt/strings_feder-cr.py"
-        global_config.STRINGS_MODULE_RESUME_JOB_DESCRIPTION_PATH = lib_directory / "resume_job_description_prompt/strings_feder-cr.py"
-        global_config.STRINGS_MODULE_NAME = "strings_feder_cr"
+        global_config.STRINGS_MODULE_RESUME_PATH = lib_directory / "resume_prompt/strings_factory.py"
+        global_config.STRINGS_MODULE_RESUME_JOB_DESCRIPTION_PATH = lib_directory / "resume_job_description_prompt/strings_factory.py"
+        global_config.STRINGS_MODULE_NAME = "strings_lib"
         global_config.STYLES_DIRECTORY = lib_directory / "resume_style"
         global_config.LOG_OUTPUT_FILE_PATH = log_path
         global_config.API_KEY = api_key
@@ -52,7 +52,7 @@ class FacadeManager:
     # formatted_choices.append(final_style_choice)
     # selected_choice = self.prompt_user(formatted_choices, "Which style would you like to adopt?")
     # if selected_choice == final_style_choice:
-    #     tutorial_url = "https://github.com/samodum/lib_resume_builder_AIHawk/blob/main/how_to_contribute/web_designer.md"
+    #     tutorial_url = "https://github.com/samodum/ai_cv_builder/blob/main/how_to_contribute/web_designer.md"
     #     print("\nOpening tutorial in your browser...")
     #     webbrowser.open(tutorial_url)
     #     exit()
@@ -70,7 +70,7 @@ class FacadeManager:
         formatted_choices.append(final_style_choice)
         selected_choice = self.prompt_user(formatted_choices, "Which style would you like to adopt?")
         if selected_choice == final_style_choice:
-            tutorial_url = "https://github.com/samodum/lib_resume_builder_AIHawk/blob/main/how_to_contribute/web_designer.md"
+            tutorial_url = "https://github.com/samodum/ai_cv_builder/blob/main/how_to_contribute/web_designer.md"
             print("\nOpening tutorial in your browser...")
             webbrowser.open(tutorial_url)
             exit()

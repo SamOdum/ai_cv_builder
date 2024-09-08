@@ -15,7 +15,7 @@ from langchain_openai import ChatOpenAI
 from langchain_text_splitters import TokenTextSplitter
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
-from lib_resume_builder_AIHawk.config import global_config
+from ai_cv_builder.config import global_config
 from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor, as_completed
 load_dotenv()
@@ -128,7 +128,7 @@ class LLMResumeJobDescription:
         self.resume = resume
 
     def set_job_description_from_url(self, url_job_description):
-        from lib_resume_builder_AIHawk.utils import create_driver_selenium
+        from ai_cv_builder.utils import create_driver_selenium
         driver = create_driver_selenium()
         driver.get(url_job_description)
         time.sleep(3)

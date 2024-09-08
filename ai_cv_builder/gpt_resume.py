@@ -8,7 +8,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompt_values import StringPromptValue
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
-from lib_resume_builder_AIHawk.config import global_config
+from ai_cv_builder.config import global_config
 load_dotenv()
 
 
@@ -77,7 +77,7 @@ class LoggerChatModel:
 
     def __call__(self, messages: List[Dict[str, str]]) -> str:
         # Call the LLM with the provided messages and log the response.
-        reply = self.llm(messages)
+        reply = self.llm.invoke(messages)
         parsed_reply = self.parse_llmresult(reply)
         LLMLogger.log_request(prompts=messages, parsed_reply=parsed_reply)
         return reply

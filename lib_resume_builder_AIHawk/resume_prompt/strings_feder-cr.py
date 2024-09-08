@@ -44,7 +44,9 @@ Act as an HR expert and resume writer with a specialization in creating ATS-frie
 
 - **Template to Use**
 ```
-    <p id="bio">[Your Bio]</p>
+<section id="bio" class="section-block">
+  <p>[Your Bio]</p>
+</section>
 ```
 The results should be provided in html format, include only the provide information and Provide only the html code for the resume, without any explanations or additional text and also without ```html ```
 """
@@ -60,11 +62,14 @@ Act as an HR expert and resume writer with a specialization in creating ATS-frie
 
 - **Template to Use**
 ```
-<section id="technologies">
-    <h2>Technologies</h2>
-    <ul class="compact-list">
-        <li><span class="category-heading">[Technology Category]</span><span class="category-list">[Specific Technologies]</span></li>
-    </ul>
+<section id="technologies" class="section-block">
+  <h2>Technologies</h2>
+  <ul class="section-list ">
+    <li class="section-list-item">
+      <h3 class="section-list-item-heading">[Technology Category]</h3>
+      <p class="section-list-item-content">[Specific Technologies]</p>
+    </li>
+  </ul>
 </section>  
 ```
 The results should be provided in html format, include only the provide information and Provide only the html code for the resume, without any explanations or additional text and also without ```html ```
@@ -81,19 +86,20 @@ Act as an HR expert and resume writer with a specialization in creating ATS-frie
 
 - **Template to Use**
 ```
-<section id="education">
-    <h2>Education</h2>
-    <div class="entry">
-      <div class="entry-header">
-          <span class="entry-name">[University Name]</span>
-          <span class="entry-location">[Location]</span>
+<section id="education" class="section-block">
+  <h2>Education</h2>
+  <ul class="section-list">
+    <li class="section-list-item section-list-item--start">
+      <h3 class="section-list-item-heading">[Start Year] - [End Year]</h3>
+      <div class="section-list-body">
+        <header class="section-list-body-header">
+          <span class="section-list-body-header-role">[Degree] in [Field of Study] | GPA:
+            [Your GPA]</span>
+          <span class="section-list-body-header-employer">[University Name] — [Location]</span>
+        </header>
       </div>
-      <div class="entry-details">
-          <span class="entry-title">[Degree] in [Field of Study] | GPA: [Your GPA]/4.0</span>
-          <span class="entry-year">[Start Year] – [End Year]</span>
-      </div>
-
-    </div>
+    </li>
+  </ul>
 </section>
 ```
 The results should be provided in html format, Provide only the html code for the resume, without any explanations or additional text and also without ```html ```
@@ -112,162 +118,48 @@ Act as an HR expert and resume writer with a specialization in creating ATS-frie
 
 - **Template to Use**
 ```
-<section id="work-experience">
-    <h2>Work Experience</h2>
-    <div class="entry">
-      <div class="entry-header">
-          <span class="entry-name">[Company Name]</span>
-          <span class="entry-location"> — [Location]</span>
-      </div>
-      <div class="entry-details">
-          <span class="entry-title">[Your Job Title]</span>
-          <span class="entry-year">[Start Date] – [End Date]</span>
-      </div>
-      <ul class="compact-list">
+<section id="work-experience" class="section-block">
+  <h2>Work Experience</h2>
+  <ul class="section-list">
+
+    <li class="section-list-item section-list-item--start">
+      <h3 class="section-list-item-heading">[Start Date] - [End Date]</h3>
+      <div class="section-list-body">
+        <header class="section-list-body-header">
+          <span class="section-list-body-header-role">[Your Job Title]</span>
+          <span class="section-list-body-header-employer">[Company Name] — [Location]</span>
+        </header>
+        <ul class="section-list-body-content">
           <li>[Describe your responsibilities and achievements in this role]</li>
-          <li>[Describe any key projects or technologies you worked with]</li>
-          <li>[Mention any notable accomplishments or results]</li>
-      </ul>
-    </div>
-    <div class="entry">
-      <div class="entry-header">
-          <span class="entry-name">[Company Name]</span>
-          <span class="entry-location"> — [Location]</span>
+        </ul>
       </div>
-      <div class="entry-details">
-          <span class="entry-title">[Your Job Title]</span>
-          <span class="entry-year">[Start Date] – [End Date]</span>
-      </div>
-      <ul class="compact-list">
-          <li>[Describe your responsibilities and achievements in this role]</li>
-          <li>[Describe any key projects or technologies you worked with]</li>
-          <li>[Mention any notable accomplishments or results]</li>
-      </ul>
-    </div>
-    <div class="entry">
-      <div class="entry-header">
-          <span class="entry-name">[Company Name]</span>
-          <span class="entry-location"> — [Location]</span>
-      </div>
-      <div class="entry-details">
-          <span class="entry-title">[Your Job Title]</span>
-          <span class="entry-year">[Start Date] – [End Date]</span>
-      </div>
-      <ul class="compact-list">
-          <li>[Describe your responsibilities and achievements in this role]</li>
-          <li>[Describe any key projects or technologies you worked with]</li>
-          <li>[Mention any notable accomplishments or results]</li>
-      </ul>
-    </div>
+    </li>
+  </ul>
 </section>
 ```
 The results should be provided in html format, Provide only the html code for the resume, without any explanations or additional text and also without ```html ```
 """
 
-prompt_side_projects = """
-Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to highlight notable side projects. For each project, ensure you include:
-
-1. **Project Name and Link**: Provide the name of the project and include a link to the GitHub repository or project page.
-2. **Project Details**: Describe any notable recognition or achievements related to the project, such as GitHub stars or community feedback.
-3. **Technical Contributions**: Highlight your specific contributions and the technologies used in the project.
-
-- **My information:**  
-  {projects}
-
-- **Template to Use**
-```
-<section id="side-projects">
-    <h2>Side Projects</h2>
-    <div class="entry">
-      <div class="entry-header">
-          <span class="entry-name"><i class="fab fa-github"></i> <a href="[Github Repo or Link]">[Project Name]</a></span>
-      </div>
-      <ul class="compact-list">
-          <li>[Describe any notable recognition or reception]</li>
-          <li>[Describe any notable recognition or reception]</li>
-      </ul>
-    </div>
-    <div class="entry">
-      <div class="entry-header">
-          <span class="entry-name"><i class="fab fa-github"></i> <a href="[Github Repo or Link]">[Project Name]</a></span>
-      </div>
-      <ul class="compact-list">
-          <li>[Describe any notable recognition or reception]</li>
-          <li>[Describe any notable recognition or reception]</li>
-      </ul>
-    </div>
-    <div class="entry">
-      <div class="entry-header">
-          <span class="entry-name"><i class="fab fa-github"></i> <a href="[Github Repo or Link]">[Project Name]</a></span>
-      </div>
-      <ul class="compact-list">
-          <li>[Describe any notable recognition or reception]</li>
-          <li>[Describe any notable recognition or reception]</li>
-      </ul>
-    </div>
-</section>
-```
-The results should be provided in html format, Provide only the html code for the resume, without any explanations or additional text and also without ```html ```
-"""
-
-prompt_achievements = """
-Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to list significant achievements. For each achievement, ensure you include:
-
-1. **Award or Recognition**: Clearly state the name of the award, recognition, scholarship, or honor.
-2. **Description**: Provide a brief description of the achievement and its relevance to your career or academic journey.
-
-- **My information:**  
-  {achievements}
-  {certifications}
-
-- **Template to Use**
-```
-<section id="achievements">
-    <h2>Achievements</h2>
-    <ul class="compact-list">
-      <li><strong>[Award or Recognition or Scholarship or Honor]:</strong> [Describe]</li>
-      <li><strong>[Award or Recognition or Scholarship or Honor]:</strong> [Describe]</li>
-      <li><strong>[Award or Recognition or Scholarship or Honor]:</strong> [Describe]</li>
-    </ul>
-</section>
-```
-The results should be provided in **html** format, Provide only the html code for the resume, without any explanations or additional text and also without ```html ```
-"""
-
-prompt_additional_skills = """
-Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to list additional skills relevant to the job. For each skill, ensure you include:
+prompt_skills = """
+Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to list additional skills relevant or not to the job. For each skill, ensure you include:
 
 1. **Skill Category**: Clearly state the category or type of skill.
 2. **Specific Skills**: List the specific skills or technologies within each category.
-3. **Proficiency and Experience**: Briefly describe your experience and proficiency level.
+3. **Language Proficiency and Experience**: Include language proficiency levels.
 
 - **My information:**  
-  {languages}
-  {interests}
   {skills}
 
 - **Template to Use**
 ```
-<section id="skills-languages">
-    <h2>Additional Skills</h2>
-    <div class="two-column">
-      <ul class="compact-list">
-          <li>[Specific Skill or Technology]</li>
-          <li>[Specific Skill or Technology]</li>
-          <li>[Specific Skill or Technology]</li>
-          <li>[Specific Skill or Technology]</li>
-          <li>[Specific Skill or Technology]</li>
-          <li>[Specific Skill or Technology]</li>
-      </ul>
-      <ul class="compact-list">
-          <li>[Specific Skill or Technology]</li>
-          <li>[Specific Skill or Technology]</li>
-          <li>[Specific Skill or Technology]</li>
-          <li>[Specific Skill or Technology]</li>
-          <li>[Specific Skill or Technology]</li>
-          <li><strong>Languages:[Languages]</strong></li>
-      </ul>
-    </div>
+<section id="skills" class="section-block">
+  <h2>Other Skills</h2>
+  <ul class="section-list ">
+    <li class="section-list-item">
+      <h3 class="section-list-item-heading">[Category]</h3>
+      <p class="section-list-item-content">[Specific skill or Language]</p>
+    </li>
+  </ul>
 </section>
 ```
 The results should be provided in html format, Provide only the html code for the resume, without any explanations or additional text and also without ```html ```

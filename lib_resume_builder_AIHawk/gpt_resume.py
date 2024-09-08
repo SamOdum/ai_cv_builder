@@ -179,47 +179,58 @@ class LLMResumer:
         })
         return output
 
-    def generate_side_projects_section(self) -> str:
-        side_projects_prompt_template = self._preprocess_template_string(
-            self.strings.prompt_side_projects
+    # def generate_side_projects_section(self) -> str:
+    #     side_projects_prompt_template = self._preprocess_template_string(
+    #         self.strings.prompt_side_projects
+    #     )
+    #     prompt = ChatPromptTemplate.from_template(side_projects_prompt_template)
+    #     chain = prompt | self.llm_cheap | StrOutputParser()
+    #     output = chain.invoke({
+    #         "projects": self.resume.projects
+    #     })
+    #     return output
+
+    # def generate_achievements_section(self) -> str:
+    #     achievements_prompt_template = self._preprocess_template_string(
+    #         self.strings.prompt_achievements
+    #     )
+    #     if self.resume.achievements:
+    #         prompt = ChatPromptTemplate.from_template(achievements_prompt_template)
+    #         chain = prompt | self.llm_cheap | StrOutputParser()
+    #         output = chain.invoke({
+    #             "achievements": self.resume.achievements,
+    #             "certifications": self.resume.achievements
+    #         })
+    #         return output
+
+    # def generate_additional_skills_section(self) -> str:
+    #     additional_skills_prompt_template = self._preprocess_template_string(
+    #         self.strings.prompt_additional_skills
+    #     )
+    #     skills = set()
+    #     # for edu in self.resume.education_details:
+    #     #     if hasattr(edu, 'exam'):
+    #     #         if isinstance(edu.exam, dict):
+    #     #             skills.update(edu.exam.keys())
+    #     #         elif isinstance(edu.exam, list):
+    #     #             skills.update(exam.name for exam in edu.exam if hasattr(exam, 'name'))
+    #     prompt = ChatPromptTemplate.from_template(additional_skills_prompt_template)
+    #     chain = prompt | self.llm_cheap | StrOutputParser()
+    #     output = chain.invoke({
+    #         "languages":  self.resume.languages,
+    #         "interests": self.resume.interests,
+    #         "skills": skills
+    #     })
+    #     return output
+    
+    def generate_skills_section(self) -> str:
+        skills_prompt_template = self._preprocess_template_string(
+            self.strings.prompt_skills
         )
-        prompt = ChatPromptTemplate.from_template(side_projects_prompt_template)
+        prompt = ChatPromptTemplate.from_template(skills_prompt_template)
         chain = prompt | self.llm_cheap | StrOutputParser()
         output = chain.invoke({
-            "projects": self.resume.projects
-        })
-        return output
-
-    def generate_achievements_section(self) -> str:
-        achievements_prompt_template = self._preprocess_template_string(
-            self.strings.prompt_achievements
-        )
-        if self.resume.achievements:
-            prompt = ChatPromptTemplate.from_template(achievements_prompt_template)
-            chain = prompt | self.llm_cheap | StrOutputParser()
-            output = chain.invoke({
-                "achievements": self.resume.achievements,
-                "certifications": self.resume.achievements
-            })
-            return output
-
-    def generate_additional_skills_section(self) -> str:
-        additional_skills_prompt_template = self._preprocess_template_string(
-            self.strings.prompt_additional_skills
-        )
-        skills = set()
-        # for edu in self.resume.education_details:
-        #     if hasattr(edu, 'exam'):
-        #         if isinstance(edu.exam, dict):
-        #             skills.update(edu.exam.keys())
-        #         elif isinstance(edu.exam, list):
-        #             skills.update(exam.name for exam in edu.exam if hasattr(exam, 'name'))
-        prompt = ChatPromptTemplate.from_template(additional_skills_prompt_template)
-        chain = prompt | self.llm_cheap | StrOutputParser()
-        output = chain.invoke({
-            "languages":  self.resume.languages,
-            "interests": self.resume.interests,
-            "skills": skills
+            "skills": self.resume.skills
         })
         return output
     
@@ -230,9 +241,10 @@ class LLMResumer:
         technologies = self.generate_technologies_section()
         education = self.generate_education_section()
         work_experience = self.generate_work_experience_section()
-        side_projects = self.generate_side_projects_section()
-        achievements = self.generate_achievements_section()
-        additional_skills = self.generate_additional_skills_section()
+        # side_projects = self.generate_side_projects_section()
+        # achievements = self.generate_achievements_section()
+        # additional_skills = self.generate_additional_skills_section()
+        skills = self.generate_skills_section()
 
         # Combine all sections into a single resume
         full_resume = (
@@ -243,9 +255,10 @@ class LLMResumer:
             f"    {technologies}\n"
             f"    {education}\n"
             f"    {work_experience}\n"
-            f"    {side_projects}\n"
-            f"    {achievements}\n"
-            f"    {additional_skills}\n"
+            # f"    {side_projects}\n"
+            # f"    {achievements}\n"
+            # f"    {additional_skills}\n"
+            f"    {skills}\n"
             f"  </main>\n"
             f"</body>"
         )

@@ -219,60 +219,60 @@ class LLMResumeJobDescription:
         })
         return output
 
-    def generate_side_projects_section(self) -> str:
-        side_projects_prompt_template = self._preprocess_template_string(
-            self.strings.prompt_side_projects
-        )
-        prompt = ChatPromptTemplate.from_template(side_projects_prompt_template)
-        chain = prompt | self.llm_cheap | StrOutputParser()
-        output = chain.invoke({
-            "projects": self.resume.projects,
-            "job_description": self.job_description
-        })
-        return output
+    # def generate_side_projects_section(self) -> str:
+    #     side_projects_prompt_template = self._preprocess_template_string(
+    #         self.strings.prompt_side_projects
+    #     )
+    #     prompt = ChatPromptTemplate.from_template(side_projects_prompt_template)
+    #     chain = prompt | self.llm_cheap | StrOutputParser()
+    #     output = chain.invoke({
+    #         "projects": self.resume.projects,
+    #         "job_description": self.job_description
+    #     })
+    #     return output
 
-    def generate_achievements_section(self) -> str:
-        achievements_prompt_template = self._preprocess_template_string(
-            self.strings.prompt_achievements
-        )
+    # def generate_achievements_section(self) -> str:
+    #     achievements_prompt_template = self._preprocess_template_string(
+    #         self.strings.prompt_achievements
+    #     )
 
-        if self.resume.achievements: 
-            prompt = ChatPromptTemplate.from_template(achievements_prompt_template)
-            chain = prompt | self.llm_cheap | StrOutputParser()
-            output = chain.invoke({
-                "achievements": self.resume.achievements,
-                "certifications": self.resume.achievements,
-                "job_description": self.job_description
-            })
-            return output
+    #     if self.resume.achievements: 
+    #         prompt = ChatPromptTemplate.from_template(achievements_prompt_template)
+    #         chain = prompt | self.llm_cheap | StrOutputParser()
+    #         output = chain.invoke({
+    #             "achievements": self.resume.achievements,
+    #             "certifications": self.resume.achievements,
+    #             "job_description": self.job_description
+    #         })
+    #         return output
 
-    def generate_additional_skills_section(self) -> str:
-        additional_skills_prompt_template = self._preprocess_template_string(
-            self.strings.prompt_additional_skills
-        )
+    # def generate_additional_skills_section(self) -> str:
+    #     additional_skills_prompt_template = self._preprocess_template_string(
+    #         self.strings.prompt_additional_skills
+    #     )
         
-        skills = set()
+    #     skills = set()
 
-        if self.resume.experience_details:
-            for exp in self.resume.experience_details:
-                if exp.skills_acquired:
-                    skills.update(exp.skills_acquired)
+    #     if self.resume.experience_details:
+    #         for exp in self.resume.experience_details:
+    #             if exp.skills_acquired:
+    #                 skills.update(exp.skills_acquired)
 
-        # if self.resume.education_details:
-            # for edu in self.resume.education_details:
-            #     if edu.exam:
-            #         for exam in edu.exam:
-                        # skills.update(exam.keys())
-        prompt = ChatPromptTemplate.from_template(additional_skills_prompt_template)
-        chain = prompt | self.llm_cheap | StrOutputParser()
-        output = chain.invoke({
-            "languages": self.resume.languages,
-            "interests": self.resume.interests,
-            "skills": skills,
-            "job_description": self.job_description
-        })
+    #     # if self.resume.education_details:
+    #         # for edu in self.resume.education_details:
+    #         #     if edu.exam:
+    #         #         for exam in edu.exam:
+    #                     # skills.update(exam.keys())
+    #     prompt = ChatPromptTemplate.from_template(additional_skills_prompt_template)
+    #     chain = prompt | self.llm_cheap | StrOutputParser()
+    #     output = chain.invoke({
+    #         "languages": self.resume.languages,
+    #         "interests": self.resume.interests,
+    #         "skills": skills,
+    #         "job_description": self.job_description
+    #     })
         
-        return output
+    #     return output
     
     def generate_bio_section(self) -> str:
         bio_prompt_template = self._preprocess_template_string(
@@ -291,6 +291,15 @@ class LLMResumeJobDescription:
         chain = prompt | self.llm_cheap | StrOutputParser()
         output = chain.invoke({
             "technologies": self.resume.technologies,
+            "job_description": self.job_description
+        })
+        return output
+    
+    def generate_skills_section(self) -> str:
+        prompt = ChatPromptTemplate.from_template(self.strings.prompt_skills)
+        chain = prompt | self.llm_cheap | StrOutputParser()
+        output = chain.invoke({
+            "skills": self.resume.skills,
             "job_description": self.job_description
         })
         return output
@@ -313,14 +322,17 @@ class LLMResumeJobDescription:
         def work_experience_fn():
             return self.generate_work_experience_section()
 
-        def side_projects_fn():
-            return self.generate_side_projects_section()
+        # def side_projects_fn():
+        #     return self.generate_side_projects_section()
 
-        def achievements_fn():
-            return self.generate_achievements_section()
+        # def achievements_fn():
+        #     return self.generate_achievements_section()
 
-        def additional_skills_fn():
-            return self.generate_additional_skills_section()
+        # def additional_skills_fn():
+        #     return self.generate_additional_skills_section()
+
+        def skills_fn():
+            return self.generate_skills_section()
 
         # Create a dictionary to map the function names to their respective callables
         functions = {
@@ -329,9 +341,10 @@ class LLMResumeJobDescription:
             "technologies": technologies_fn,
             "education": education_fn,
             "work_experience": work_experience_fn,
-            "side_projects": side_projects_fn,
-            "achievements": achievements_fn,
-            "additional_skills": additional_skills_fn,
+            # "side_projects": side_projects_fn,
+            # "achievements": achievements_fn,
+            # "additional_skills": additional_skills_fn,
+            "skills": skills_fn,
         }
 
         # Use ThreadPoolExecutor to run the functions in parallel
@@ -354,9 +367,10 @@ class LLMResumeJobDescription:
             f"    {results['technologies']}\n"
             f"    {results['education']}\n"
             f"    {results['work_experience']}\n"
-            f"    {results['side_projects']}\n"
-            f"    {results['achievements']}\n"
-            f"    {results['additional_skills']}\n"
+            # f"    {results['side_projects']}\n"
+            # f"    {results['achievements']}\n"
+            # f"    {results['additional_skills']}\n"
+            f"    {results['skills']}\n"
             f"  </main>\n"
             f"</body>"
         )

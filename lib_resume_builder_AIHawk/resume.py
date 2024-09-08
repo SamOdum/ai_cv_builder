@@ -33,14 +33,14 @@ class ExperienceDetails(BaseModel):
     key_responsibilities: Optional[List[Dict[str, str]]]
     skills_acquired: Optional[List[str]]
 
-class Project(BaseModel):
-    name: Optional[str]
-    description: Optional[str]
-    link: Optional[HttpUrl]
+# class Project(BaseModel):
+#     name: Optional[str]
+#     description: Optional[str]
+#     link: Optional[HttpUrl]
 
-class Achievement(BaseModel):
-    name: Optional[str]
-    description: Optional[str]
+# class Achievement(BaseModel):
+#     name: Optional[str]
+#     description: Optional[str]
 
 class Language(BaseModel):
     language: Optional[str]
@@ -77,21 +77,26 @@ class Technologies(BaseModel):
     project_management: Optional[List[str]]
     design: Optional[List[str]]
 
+class Skills(BaseModel):
+    languages: Optional[List[Language]]
+    miscellaneous: Optional[List[str]]
+
 class Resume(BaseModel):
     personal_information: Optional[PersonalInformation]
     education_details: Optional[List[EducationDetails]]
     experience_details: Optional[List[ExperienceDetails]]
-    projects: Optional[List[Project]]
-    achievements: Optional[List[Achievement]]
-    certifications: Optional[List[str]]
-    languages: Optional[List[Language]]
-    interests: Optional[List[str]]
+    # projects: Optional[List[Project]]
+    # achievements: Optional[List[Achievement]]
+    # certifications: Optional[List[str]]
+    # languages: Optional[List[Language]]
+    # interests: Optional[List[str]]
     availability: Optional[Availability]
     salary_expectations: Optional[SalaryExpectations]
     self_identification: Optional[SelfIdentification]
     legal_authorization: Optional[LegalAuthorization]
     bio: Optional[str]
     technologies: Optional[Technologies]
+    skills: Optional[Skills]
     
     @staticmethod
     def normalize_exam_format(exam):

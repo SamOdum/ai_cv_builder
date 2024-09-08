@@ -9,3 +9,4 @@ lib_resume_builder_AIHawk.egg-info/*
 build/*
 .DS_Store
 /virtual
+secrets.yaml

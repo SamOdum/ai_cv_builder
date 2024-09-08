@@ -1,8 +1,13 @@
 import os
+import yaml
 from pathlib import Path
 from lib_resume_builder_AIHawk import FacadeManager, StyleManager, ResumeGenerator, Resume
 
-openai_api_key = "api-key"
+# Load secrets
+with open('secrets.yml', 'r') as file:
+    secrets = yaml.safe_load(file)
+    
+openai_api_key = secrets['openai_api_key']
 
 style_manager = StyleManager()
 resume_generator = ResumeGenerator()

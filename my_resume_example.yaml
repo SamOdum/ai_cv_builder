@@ -75,12 +75,18 @@ experience_details:
     location: "City A"
     industry: "Software Development"
     key_responsibilities:
-      - "Oversee multiple development teams, fostering innovation and continuous improvement."
-      - "Develop and implement technical strategies, improving product delivery speed by 30%."
-      - "Collaborate with executives and product managers to define strategic product roadmaps."
-      - "Implement and refine agile methodologies, enhancing team efficiency by 25%."
-      - "Establish mentorship programs for engineers, improving retention and satisfaction."
-      - "Manage resource allocation across departments to optimize team performance."
+      - responsibility_1: "Oversee multiple development teams totaling 12 engineers, fostering a culture of innovation and continuous improvement across the organization."
+      - responsibility_2: "Develop and implement company-wide technical strategies aligned with long-term business objectives, resulting in a 30% increase in overall product delivery speed." 
+      - responsibility_3: "Collaborate with C-level executives and product managers to define strategic product roadmaps and prioritize features based on market demands and company vision."
+      - responsibility_4: "Implement and refine agile methodologies across teams, improving overall engineering efficiency by 25% and enhancing cross-team collaboration." 
+      - responsibility_5: "Establish and oversee mentorship programs and career development paths for engineers at all levels, resulting in improved retention and team satisfaction." 
+      - responsibility_6: "Manage resource allocation across departments to optimize team performance."
+    skills_acquired:
+      - "Strategic Planning"
+      - "Team Leadership"
+      - "Agile Methodologies"
+      - "Resource Management"
+      - "Mentorship Program Development"
 
   - position: "Team Lead, Fullstack Development"
     company: "Company B"
@@ -88,11 +94,17 @@ experience_details:
     location: "City B"
     industry: "Software Development"
     key_responsibilities:
-      - "Led architectural decisions for scalable software solutions."
-      - "Conducted performance evaluations and provided constructive feedback."
-      - "Recruited, interviewed, and hired team members."
-      - "Facilitated communication within the team to ensure alignment."
-      - "Implemented agile methodologies, facilitating sprint planning and retrospectives."
+      - responsibility_1: "Led architectural decisions for scalable software solutions."
+      - responsibility_2: "Conducted performance evaluations and provided constructive feedback."
+      - responsibility_3: "Recruited, interviewed, and hired team members."
+      - responsibility_4: "Facilitated communication within the team to ensure alignment."
+      - responsibility_5: "Implemented agile methodologies, facilitating sprint planning and retrospectives."
+    skills_acquired:
+      - "Architectural Design"
+      - "Performance Management"
+      - "Agile Implementation"
+      - "Team Communication"
+      - "Talent Acquisition"
 
   - position: "Senior Software Engineer & Consultant"
     company: "Consulting Firm"
@@ -100,10 +112,16 @@ experience_details:
     location: "City C"
     industry: "Software Consultancy"
     key_responsibilities:
-      - "Led development of critical features for major commercial projects."
-      - "Engaged with stakeholders to translate requirements into technical solutions."
-      - "Mentored junior developers to follow best practices."
-      - "Enhanced performance by applying advanced optimization techniques."
+      - responsibility_1: "Led development of critical features for major commercial projects."
+      - responsibility_2: "Engaged with stakeholders to translate requirements into technical solutions."
+      - responsibility_3: "Mentored junior developers to follow best practices."
+      - responsibility_4: "Enhanced performance by applying advanced optimization techniques."
+    skills_acquired:
+      - "Feature Development"
+      - "Product Strategy"
+      - "Stakeholder Management"
+      - "Code Optimization"
+      - "Technical Mentorship"
 
 skills:
   languages:
@@ -141,6 +159,7 @@ legal_authorization:
   requires_eu_visa: "No"
   legally_allowed_to_work_in_eu: "Yes"
   legally_allowed_to_work_in_us: "No"
+  requires_eu_sponsorship: "No"
 
 work_preferences:
   remote_work: "Yes"

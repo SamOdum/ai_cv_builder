@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='lib_resume_builder_AIHawk',
+    name='ai_cv_builder',
     version='0.1',
     description='A package to generate AI-assisted resumes using GPT models',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    author='feder-cr',
-    author_email='federico.elia.majo@gmail.com',
-    url='https://github.com/SamOdum/lib_resume_builder_AIHawk',
+    author='Sam Odum',
+    author_email='46067752+SamOdum@users.noreply.github.com',
+    url='https://github.com/SamOdum/ai_cv_builder',
     packages=find_packages(),
     install_requires=[ 
         'langchain',

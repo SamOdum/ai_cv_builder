@@ -40,31 +40,31 @@ Connect with fellow users in our **Telegram community** for:
 
 1. Clone the repository:
 
-   ```
-   git clone https://github.com/feder-cr/ai_cv_builder.git
+   ```bash
+   git clone https://github.com/SamOdum/ai_cv_builder.git
    cd ai_cv_builder
    ```
 
 2. Create a virtual environment:
 
-   ```
+   ```bash
    python3 -m venv venv
    ```
 
 3. Activate the virtual environment:
 
    - On macOS and Linux:
-     ```
+     ```bash
      source venv/bin/activate
      ```
    - On Windows:
-     ```
+     ```bash
      .\venv\Scripts\activate
      ```
 
 4. Install dependencies:
 
-   ```
+   ```bash
    pip install -r requirements.txt
    ```
 
@@ -80,7 +80,7 @@ Connect with fellow users in our **Telegram community** for:
 
 To run the resume builder:
 
-```
+```bash
 python main.py
 ```
 
@@ -162,7 +162,7 @@ There is a known issue with setting the CSS style path in [manager_facade.py](ma
         formatted_choices.append(final_style_choice)
         selected_choice = self.prompt_user(formatted_choices, "Which style would you like to adopt?")
         if selected_choice == final_style_choice:
-            tutorial_url = "https://github.com/samodum/lib_resume_builder_AIHawk/blob/main/how_to_contribute/web_designer.md"
+            tutorial_url = "https://github.com/samodum/ai_cv_builder/blob/main/how_to_contribute/web_designer.md"
             print("\nOpening tutorial in your browser...")
             webbrowser.open(tutorial_url)
             exit()
@@ -183,7 +183,7 @@ There is a known issue with setting the CSS style path in [manager_facade.py](ma
       formatted_choices.append(final_style_choice)
       selected_choice = self.prompt_user(formatted_choices, "Which style would you like to adopt?")
       if selected_choice == final_style_choice:
-         tutorial_url = "https://github.com/samodum/lib_resume_builder_AIHawk/blob/main/how_to_contribute/web_designer.md"
+         tutorial_url = "https://github.com/samodum/ai_cv_builder/blob/main/how_to_contribute/web_designer.md"
          print("\nOpening tutorial in your browser...")
          webbrowser.open(tutorial_url)
          exit()

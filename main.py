@@ -1,7 +1,7 @@
 import os
 import yaml
 from pathlib import Path
-from lib_resume_builder_AIHawk import FacadeManager, StyleManager, ResumeGenerator, Resume
+from ai_cv_builder import FacadeManager, StyleManager, ResumeGenerator, Resume
 
 # Load secrets
 with open('secrets.yaml', 'r') as file:

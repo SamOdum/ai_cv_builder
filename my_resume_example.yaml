@@ -1,0 +1,151 @@
+personal_information:
+  name: "John"
+  surname: "Doe"
+  date_of_birth: "01/01/1990"
+  country: "Country"
+  city: "City, State, Country"
+  address: "Anonymous Address"
+  phone_prefix: "+00"
+  phone: "1234567890"
+  email: "john.doe@test.com"
+  github: "https://github.com/johndoe"
+  linkedin: "https://www.linkedin.com/in/johndoe/"
+
+bio: "Experienced Engineering Manager with a track record of leading high-performing teams and delivering scalable web solutions. Skilled in full-stack development, specializing in JavaScript, TypeScript, React, and NodeJS. Expert in designing robust systems that serve large-scale users and driving innovation aligned with business objectives."
+
+technologies:
+  front_end:
+    - JavaScript
+    - TypeScript
+    - React
+    - NextJS
+    - HTML5
+    - CSS3
+    - Tailwind
+  back_end:
+    - NodeJS
+    - Python
+    - Microservices
+    - NestJS
+    - REST
+    - GraphQL
+  data_storage:
+    - PostgreSQL
+    - MongoDB
+    - Redis
+  cloud_devops:
+    - AWS
+    - GCP
+    - Docker
+    - Kubernetes
+    - CI/CD
+  project_management:
+    - Agile
+    - Scrum
+    - Kanban
+    - Jira
+  design:
+    - Figma
+    - Adobe XD
+    - Adobe Photoshop
+    - Adobe Illustrator
+    - Blender
+
+education_details:
+  - degree: "Bachelor's Degree"
+    university: "Anonymous University"
+    gpa: "4.0/5"
+    graduation_year: "2007"
+    field_of_study: "Computer Science"
+  - degree: "Diploma"
+    university: "Anonymous Institute"
+    gpa: "85/100"
+    graduation_year: "2013"
+    field_of_study: "Operations Management"
+  - degree: "Diploma"
+    university: "Anonymous Business Centre"
+    gpa: "90/100"
+    graduation_year: "2014"
+    field_of_study: "Entrepreneurship & Business Management"
+
+experience_details:
+  - position: "Engineering Manager"
+    company: "Company A"
+    employment_period: "01/2024 - Present"
+    location: "City A"
+    industry: "Software Development"
+    key_responsibilities:
+      - "Oversee multiple development teams, fostering innovation and continuous improvement."
+      - "Develop and implement technical strategies, improving product delivery speed by 30%."
+      - "Collaborate with executives and product managers to define strategic product roadmaps."
+      - "Implement and refine agile methodologies, enhancing team efficiency by 25%."
+      - "Establish mentorship programs for engineers, improving retention and satisfaction."
+      - "Manage resource allocation across departments to optimize team performance."
+
+  - position: "Team Lead, Fullstack Development"
+    company: "Company B"
+    employment_period: "03/2023 - 12/2023"
+    location: "City B"
+    industry: "Software Development"
+    key_responsibilities:
+      - "Led architectural decisions for scalable software solutions."
+      - "Conducted performance evaluations and provided constructive feedback."
+      - "Recruited, interviewed, and hired team members."
+      - "Facilitated communication within the team to ensure alignment."
+      - "Implemented agile methodologies, facilitating sprint planning and retrospectives."
+
+  - position: "Senior Software Engineer & Consultant"
+    company: "Consulting Firm"
+    employment_period: "06/2020 - 02/2023"
+    location: "City C"
+    industry: "Software Consultancy"
+    key_responsibilities:
+      - "Led development of critical features for major commercial projects."
+      - "Engaged with stakeholders to translate requirements into technical solutions."
+      - "Mentored junior developers to follow best practices."
+      - "Enhanced performance by applying advanced optimization techniques."
+
+skills:
+  languages:
+    - language: "English"
+      proficiency: "Native"
+    - language: "German"
+      proficiency: "Conversational"
+    - language: "French"
+      proficiency: "Basic"
+  miscellaneous:
+    - "3D modeling"
+    - "Cinematography"
+    - "Photography"
+    - "Public Speaking"
+    - "Negotiation"
+
+availability:
+  notice_period: "Immediately"
+
+salary_expectations:
+  salary_range_usd: "100000"
+
+self_identification:
+  gender: "Male"
+  pronouns: "He"
+  veteran: "No"
+  disability: "No"
+  ethnicity: "Prefer not to disclose"
+
+legal_authorization:
+  eu_work_authorization: "Yes"
+  us_work_authorization: "No"
+  requires_us_visa: "Yes"
+  requires_us_sponsorship: "Yes"
+  requires_eu_visa: "No"
+  legally_allowed_to_work_in_eu: "Yes"
+  legally_allowed_to_work_in_us: "No"
+
+work_preferences:
+  remote_work: "Yes"
+  in_person_work: "Yes"
+  open_to_relocation: "Yes"
+  willing_to_complete_assessments: "Yes"
+  willing_to_undergo_drug_tests: "Yes"
+  willing_to_undergo_background_checks: "Yes"

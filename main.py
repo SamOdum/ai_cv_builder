@@ -4,7 +4,7 @@ from pathlib import Path
 from lib_resume_builder_AIHawk import FacadeManager, StyleManager, ResumeGenerator, Resume
 
 # Load secrets
-with open('secrets.yml', 'r') as file:
+with open('secrets.yaml', 'r') as file:
     secrets = yaml.safe_load(file)
     
 openai_api_key = secrets['openai_api_key']

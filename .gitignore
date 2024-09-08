@@ -9,5 +9,5 @@ build/*
 .DS_Store
 /venv
 secrets.yaml
-open_ai_calls*
+data_folder/output*
 .vscode

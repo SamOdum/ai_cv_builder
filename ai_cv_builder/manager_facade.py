@@ -43,21 +43,44 @@ class FacadeManager:
     
     # For use in a module environment
     # def choose_style(self):
-    # styles = self.style_manager.get_styles()
-    # if not styles:
-    #     print("No styles available")
-    #     return None
-    # final_style_choice = "Create your resume style in CSS"
-    # formatted_choices = self.style_manager.format_choices(styles)
-    # formatted_choices.append(final_style_choice)
-    # selected_choice = self.prompt_user(formatted_choices, "Which style would you like to adopt?")
-    # if selected_choice == final_style_choice:
-    #     tutorial_url = "https://github.com/samodum/ai_cv_builder/blob/main/how_to_contribute/web_designer.md"
-    #     print("\nOpening tutorial in your browser...")
-    #     webbrowser.open(tutorial_url)
-    #     exit()
-    # else:
-    #     self.selected_style = selected_choice.split(' (')[0]
+    #     styles = self.style_manager.get_styles()
+    #     if not styles:
+    #         print("No styles available")
+    #         return None
+    #     final_style_choice = "Create your resume style in CSS"
+    #     formatted_choices = self.style_manager.format_choices(styles)
+    #     formatted_choices.append(final_style_choice)
+    #     selected_choice = self.prompt_user(formatted_choices, "Which style would you like to adopt?")
+    #     if selected_choice == final_style_choice:
+    #         tutorial_url = "https://github.com/samodum/ai_cv_builder/blob/main/how_to_contribute/web_designer.md"
+    #         print("\nOpening tutorial in your browser...")
+    #         webbrowser.open(tutorial_url)
+    #         exit()
+    #     else:
+    #         self.selected_style = selected_choice.split(' (')[0]
+
+    # def pdf_base64(self, job_description_url=None, job_description_text=None):
+    #     if (job_description_url is not None and job_description_text is not None):
+    #         raise ValueError("Esattamente uno tra 'job_description_url' o 'job_description_text' deve essere fornito.")
+        
+    #     if self.selected_style is None:
+    #         raise ValueError("Devi scegliere uno stile prima di generare il PDF.")
+        
+    #     style_path = self.style_manager.get_style_path(self.selected_style)
+
+    #     with tempfile.NamedTemporaryFile(delete=False, mode='w', suffix='.html', encoding='utf-8') as temp_html_file:
+    #         temp_html_path = temp_html_file.name
+    #         if job_description_url is None and job_description_text is None:
+    #             self.resume_generator.create_resume(style_path, temp_html_path)
+    #         elif job_description_url is not None and job_description_text is None:
+    #             self.resume_generator.create_resume_job_description_url(style_path, job_description_url, temp_html_path)
+    #         elif job_description_url is None and job_description_text is not None:
+    #             self.resume_generator.create_resume_job_description_text(style_path, job_description_text, temp_html_path)
+    #         else:
+    #             return None
+    #     pdf_base64 = HTML_to_PDF(temp_html_path)
+    #     os.remove(temp_html_path)
+    #     return pdf_base64
 
     # For use in a local environment
     def choose_style(self):

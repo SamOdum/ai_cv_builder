@@ -1,16 +1,5 @@
 # AI CV Builder
 
-🚀 **Join Our Telegram Community!** 🚀
-
-Connect with fellow users in our **Telegram community** for:
-
-- Support with AI CV Builder software
-- Sharing experiences and learning from others
-- Job search tips and resume advice
-- Idea exchange and project resources
-
-📲 [Join now!](https://t.me/AICVBuilderCommunity)
-
 ## Table of Contents
 
 1. [Introduction](#introduction)
@@ -147,53 +136,8 @@ Submit pull requests to improve functionality or fix bugs. Follow [GitHub's guid
 
 ### CSS Style Path Setting
 
-There is a known issue with setting the CSS style path in [manager_facade.py](manager_facade.py) when using the package in different environments:
-
-1. When using the package as a module in another project, the following code is used to set the CSS style path:
-
-```python
-   def choose_style(self):
-        styles = self.style_manager.get_styles()
-        if not styles:
-            print("No styles available")
-            return None
-        final_style_choice = "Create your resume style in CSS"
-        formatted_choices = self.style_manager.format_choices(styles)
-        formatted_choices.append(final_style_choice)
-        selected_choice = self.prompt_user(formatted_choices, "Which style would you like to adopt?")
-        if selected_choice == final_style_choice:
-            tutorial_url = "https://github.com/samodum/ai_cv_builder/blob/main/how_to_contribute/web_designer.md"
-            print("\nOpening tutorial in your browser...")
-            webbrowser.open(tutorial_url)
-            exit()
-        else:
-            self.selected_style = selected_choice.split(' (')[0]
-```
-
-2. However, when running the module locally, the following code is required for the CSS style path to be set correctly:
-
-```python
-   def choose_style(self):
-      styles = self.style_manager.get_styles()
-      if not styles:
-         print("No styles available")
-         return None
-      final_style_choice = "Create your resume style in CSS"
-      formatted_choices = self.style_manager.format_choices(styles)
-      formatted_choices.append(final_style_choice)
-      selected_choice = self.prompt_user(formatted_choices, "Which style would you like to adopt?")
-      if selected_choice == final_style_choice:
-         tutorial_url = "https://github.com/samodum/ai_cv_builder/blob/main/how_to_contribute/web_designer.md"
-         print("\nOpening tutorial in your browser...")
-         webbrowser.open(tutorial_url)
-         exit()
-      else:
-         self.selected_style = selected_choice.split(' (')[0]
-         full_style_path = self.style_manager.get_style_path(self.selected_style)
-
-         # Create relative path
-         self.selected_style_path = '/' + '/'.join(Path(full_style_path).parts[-3:])
-```
+There is a known issue with setting the CSS style path in [manager_facade.py](manager_facade.py) when using the package in different environments.
+To handle both scenarios, the code include the code relevant to each environment. Comment out the code that is not relevant to your environment.
 
 ## License
 
